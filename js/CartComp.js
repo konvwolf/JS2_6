@@ -57,17 +57,14 @@ const cart = {
                 })
         },
         remove(cart) {
-            this.getJson(`${API}/deleteFromBasket.json`)
+            this.$parent.getJson(`${API}/deleteFromBasket.json`)
                 .then(data => {
                     if (data.result) {
-                        let productId = +element.dataset['id'];
-                        let find = this.allProducts.find(product => product.id_product === productId);
+                        let find = this.cartItems.find(el => el.id_product === cart.id_product)
                         if (find.quantity > 1) {
-                            find.quantity--;
-                            this._updateCart(find);
+                            find.quantity--
                         } else {
-                            this.allProducts.splice(this.allProducts.indexOf(find), 1);
-                            document.querySelector(`.cart-item[data-id="${productId}"]`).remove()
+                            this.cartItems = this.cartItems.filter(el => el.id_product !== cart.id_product)
                         }
                     } else {
                         console.log('Some error')
