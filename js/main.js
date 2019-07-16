@@ -4,10 +4,8 @@ let app = new Vue({
     el: '#app',
     data: {
         catalogUrl: '/catalogData.json',
-        products: [],
         cartShown: false,
-        userSearch: '',
-        filtered: []
+        userSearch: ''
     },
     components: {cart, products},
     methods: {
