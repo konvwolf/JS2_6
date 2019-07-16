@@ -11,7 +11,7 @@ const cartItem = {
                     </div>
                 </div>
                 <div class="right-block">
-                    <button class="del-btn" @click="$root.$refs.cart.remove(product)">&times;</button>
+                    <button class="del-btn" @click="$root.$refs.cart.remove(cart)">&times;</button>
                 </div>
             </div>
         `
@@ -56,8 +56,30 @@ const cart = {
                     }
                 })
         },
-        remove(product) {
-            console.log(product)
+        remove(cart) {
+            this.getJson(`${API}/deleteFromBasket.json`)
+                .then(data => {
+                    if (data.result) {
+                        let productId = +element.dataset['id'];
+                        let find = this.allProducts.find(product => product.id_product === productId);
+                        if (find.quantity > 1) {
+                            find.quantity--;
+                            this._updateCart(find);
+                        } else {
+                            this.allProducts.splice(this.allProducts.indexOf(find), 1);
+                            document.querySelector(`.cart-item[data-id="${productId}"]`).remove()
+                        }
+                    } else {
+                        console.log('Some error')
+                    }
+                })
+
+            // let find = this.cartItems.find(el => el.id_product === cart.id_product)
+            // if (find.quantity > 1) {
+            //     find.quantity--
+            // } else {
+            //     console.log(find)
+            // }
         }
     },
     template: `
