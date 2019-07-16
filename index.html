@@ -10,18 +10,18 @@
 <div id="app">
     <header>
         <div class="logo">E-shop</div>
-        <form action="#" class="search-form" @submit.prevent="filter">
+        <form action="#" class="search-form" @submit.prevent="$root.$refs.products.filter">
                 <input type="text" class="search-field" v-model="userSearch">
                 <button class="btn-search" type="submit">
                     <i class="fas fa-search"></i>
                 </button>
         </form>
         <div class="cart">
-            <cart></cart>
+            <cart ref="cart"></cart>
         </div>
     </header>
     <main>
-        <products></products>
+        <products ref="products"></products>
     </main>
 </div>
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>

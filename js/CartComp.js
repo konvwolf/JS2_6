@@ -11,7 +11,7 @@ const cartItem = {
                     </div>
                 </div>
                 <div class="right-block">
-                    <button class="del-btn" @click="remove(product)">&times;</button>
+                    <button class="del-btn" @click="$root.$refs.cart.remove(product)">&times;</button>
                 </div>
             </div>
         `
@@ -57,7 +57,7 @@ const cart = {
                 })
         },
         remove(product) {
-
+            console.log(product)
         }
     },
     template: `

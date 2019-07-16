@@ -14,6 +14,10 @@ let app = new Vue({
                 .catch(error => {
                     console.log(error)
                 })
+        },
+        getRoot(product) {
+            console.log(product)
+            console.log(this.$root)
         }
     }
 })

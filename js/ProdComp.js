@@ -6,7 +6,7 @@ const product = {
                     <div class="desc">
                         <h3>{{ product.product_name }}</h3>
                         <p>{{ product.price }} $</p>
-                        <button class="buy-btn" @click="addProduct(product)">Купить</button>
+                        <button class="buy-btn" @click="$root.$refs.cart.addProduct(product)">Купить</button>
                     </div>
                 </div>
             `
@@ -32,8 +32,8 @@ const products = {
     },
     methods: {
         filter () {
-            let regExp = new RegExp (this.userSearch, 'i')
-            return this.filtered = this.filter.filter(el => regExp.test(el.product_name))
+            let regExp = new RegExp (this.$root.userSearch, 'i')
+            return this.filtered = this.products.filter(el => regExp.test(el.product_name))
         }
     },
     template: `
