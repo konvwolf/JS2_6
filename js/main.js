@@ -4,7 +4,6 @@ let app = new Vue({
     el: '#app',
     data: {
         catalogUrl: '/catalogData.json',
-        cartShown: false,
         userSearch: ''
     },
     components: {cart, products},
@@ -237,5 +236,3 @@ let app = new Vue({
 //     .then(data => {
 //         console.log(data)
 //     })
-
-
