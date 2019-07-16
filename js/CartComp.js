@@ -36,13 +36,14 @@ const cart = {
                     this.cartItems.push(el);
                 }
             });
+            console.log(this.cartItems)
     },
     methods: {
         addProduct(product) {
             this.$parent.getJson(`${API}/addToBasket.json`)
                 .then(data => {
                     if (data.result) {
-                        let find = this.cartItems.find(el => el.id_product === product.id_product);
+                        let find = this.cartItems.find(el => el.id_product === product.id_product)
                         if (find) {
                             find.quantity++;
                         } else {
