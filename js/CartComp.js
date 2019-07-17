@@ -36,7 +36,7 @@ const cart = {
                     this.cartItems.push(el);
                 }
             });
-            console.log(this.cartItems)
+        console.log(this.cartItems)
     },
     methods: {
         addProduct(product) {
@@ -71,13 +71,6 @@ const cart = {
                         console.log('Some error')
                     }
                 })
-
-            // let find = this.cartItems.find(el => el.id_product === cart.id_product)
-            // if (find.quantity > 1) {
-            //     find.quantity--
-            // } else {
-            //     console.log(find)
-            // }
         }
     },
     template: `
