@@ -36,7 +36,6 @@ const cart = {
                     this.cartItems.push(el);
                 }
             });
-        console.log(this.cartItems)
     },
     methods: {
         addProduct(product) {
